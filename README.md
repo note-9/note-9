@@ -50,5 +50,6 @@ My journey in engineering has led me to develop a passion for cybersecurity, and
 </div>
 
 ## Projects
+- <a href="https://github.com/note-9/Basic-Home-Lab.git">Home Lab</a>
 - Detection Lab
 - SOC Automation Project
