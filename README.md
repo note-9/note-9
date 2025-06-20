@@ -9,7 +9,7 @@ Currently diving deep into **C++** and **Rust**, while Python has been my truste
 - 🐍 Python (4+ years) — scripting, automation, APIs
 - ⚙️ C++ (learning) — systems programming, performance
 - 🦀 Rust (learning) — memory safety + speed
-- 📡 IoT tinkering with microcontrollers and edge devices
+- 📡 Learning about game dev
 - 🔐 Exploring security — from networks to low-level exploits
 
 ---
