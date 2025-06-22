@@ -1,7 +1,7 @@
 # 👋 Hi, I'm Heemansh Bhawsar
 
 I'm a developer who loves building, breaking, and automating things.  
-Currently diving deep into **C++**, while Python has been my trusted sidekick for over 4 years.
+Currently diving deep into **Go**, while Python has been my trusted sidekick for over 4 years.
 
 I used to play a lot of games as a kid (Still Do) and always wandered if i could build something like that. In High School i watched the movie "The Social Network" which finally gave me the initial motivation to learn programming. Started learning Python and that was it, I was hooked. (I use Linux btw)
 
@@ -10,7 +10,7 @@ I used to play a lot of games as a kid (Still Do) and always wandered if i could
 ## 🛠️ Tech I Work With
 
 - 🐍 **Python** (4+ years) — scripting, automation, APIs  
-- ⚙️ **C++** (learning) — systems programming, performance  
+- ⚙️ **Go** (learning) — backend  
 - 🎮 Learning about game dev and interactive systems  
 - 🔐 Exploring security — from networks to low-level exploits  
 
