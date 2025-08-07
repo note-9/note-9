@@ -1,24 +1,17 @@
-document.addEventListener("mousemove", (e) => {
+document.addEventListener("mousemove", function (e) {
   const trail = document.createElement("div");
-  trail.className = "cursor-trail";
+  trail.style.position = "absolute";
+  trail.style.width = "10px";
+  trail.style.height = "10px";
+  trail.style.borderRadius = "50%";
+  trail.style.backgroundColor = "#00ff00";
   trail.style.left = e.pageX + "px";
   trail.style.top = e.pageY + "px";
+  trail.style.pointerEvents = "none";
+  trail.style.zIndex = "1000";
   document.body.appendChild(trail);
+
   setTimeout(() => {
     trail.remove();
-  }, 200);
+  }, 100);
 });
-
-const style = document.createElement("style");
-style.textContent = `
-  .cursor-trail {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: limegreen;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 1000;
-  }
-`;
-document.head.appendChild(style);
