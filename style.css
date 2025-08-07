@@ -23,7 +23,7 @@ h1, h2 {
   margin-bottom: 3rem;
 }
 
-p, li {
+p, li, ul {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -31,6 +31,7 @@ p, li {
 a {
   color: #00ff00;
   text-decoration: underline;
+  margin-bottom: 3rem;
 }
 
 canvas {
