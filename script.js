@@ -1,43 +1,40 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const projects = [
-    { name: "LogWatcher", description: "A real-time log monitoring and alert system using FastAPI." },
-    { name: "BeatSage AI", description: "Audio genre and mood classifier using machine learning." },
-    { name: "SnekAPI", description: "Multiplayer snake game backend with API control." }
-  ];
+const trail = [];
+const maxTrail = 20;
 
-  const projectList = document.getElementById("project-list");
+document.addEventListener("mousemove", (e) => {
+  const dot = document.createElement("div");
+  dot.classList.add("trail-dot");
+  dot.style.left = e.pageX + "px";
+  dot.style.top = e.pageY + "px";
+  document.body.appendChild(dot);
+  trail.push(dot);
 
-  projects.forEach(project => {
-    const li = document.createElement("li");
-    li.innerHTML = `<strong>${project.name}</strong>: ${project.description}`;
-    projectList.appendChild(li);
-  });
-
-  // Cursor trail effect
-  const trail = [];
-  for (let i = 0; i < 10; i++) {
-    const dot = document.createElement("div");
-    dot.className = "cursor-dot";
-    document.body.appendChild(dot);
-    trail.push(dot);
+  if (trail.length > maxTrail) {
+    const oldDot = trail.shift();
+    oldDot.remove();
   }
-
-  let mouseX = 0, mouseY = 0;
-  document.addEventListener("mousemove", e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  function animateTrail() {
-    let x = mouseX, y = mouseY;
-    trail.forEach((dot, i) => {
-      setTimeout(() => {
-        dot.style.left = x + "px";
-        dot.style.top = y + "px";
-      }, i * 20);
-    });
-    requestAnimationFrame(animateTrail);
-  }
-
-  animateTrail();
 });
+
+// Create trail-dot style
+const style = document.createElement('style');
+style.textContent = `
+  .trail-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #00ff00;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    transform: translate(-50%, -50%);
+    animation: fadeOut 0.5s forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+`;
+document.head.appendChild(style);
