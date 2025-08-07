@@ -1,25 +1,19 @@
+/* Global Styles */
 body {
+  margin: 0;
+  padding: 0;
   background-color: black;
-  color: limegreen;
+  color: #00ff00;
   font-family: 'Courier New', Courier, monospace;
-  padding: 20px;
-  cursor: none;
-}
-
-a {
-  color: lime;
-  text-decoration: underline;
-}
-
-ul {
-  list-style-type: square;
+  overflow: hidden;
 }
 
 .container {
-  max-width: 800px;
-  margin: auto;
+  text-align: center;
+  margin-top: 20%;
 }
 
-h1, h2 {
-  color: #00ff00;
+/* Hide default cursor */
+body {
+  cursor: none;
 }
