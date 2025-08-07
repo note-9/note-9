@@ -1,26 +1,25 @@
 body {
   background-color: black;
+  color: limegreen;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+  cursor: none;
+}
+
+a {
+  color: lime;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: square;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+h1, h2 {
   color: #00ff00;
-  font-family: monospace;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.content {
-  padding: 2rem;
-  z-index: 1;
-  position: relative;
-}
-
-.cursor-dot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background-color: #00ff00;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.7;
-  transition: transform 0.1s ease;
 }
