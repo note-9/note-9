@@ -1,19 +1,42 @@
-/* Global Styles */
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
   background-color: black;
   color: #00ff00;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
   overflow: hidden;
 }
 
-.container {
-  text-align: center;
-  margin-top: 20%;
+.content {
+  padding: 40px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Hide default cursor */
-body {
-  cursor: none;
+h1 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+a {
+  color: #00ff00;
+  text-decoration: underline;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
 }

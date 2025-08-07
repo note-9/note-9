@@ -1,17 +1,37 @@
-document.addEventListener("mousemove", function (e) {
-  const trail = document.createElement("div");
-  trail.style.position = "absolute";
-  trail.style.width = "10px";
-  trail.style.height = "10px";
-  trail.style.borderRadius = "50%";
-  trail.style.backgroundColor = "#00ff00";
-  trail.style.left = e.pageX + "px";
-  trail.style.top = e.pageY + "px";
-  trail.style.pointerEvents = "none";
-  trail.style.zIndex = "1000";
-  document.body.appendChild(trail);
+const canvas = document.getElementById("trail");
+const ctx = canvas.getContext("2d");
 
-  setTimeout(() => {
-    trail.remove();
-  }, 100);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let mouse = { x: 0, y: 0 };
+let lastMouse = { x: 0, y: 0 };
+
+window.addEventListener("mousemove", function (e) {
+  lastMouse.x = mouse.x;
+  lastMouse.y = mouse.y;
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+function animate() {
+  ctx.strokeStyle = "#00ff00";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(lastMouse.x, lastMouse.y);
+  ctx.lineTo(mouse.x, mouse.y);
+  ctx.stroke();
+
+  // fade effect
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
