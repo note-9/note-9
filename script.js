@@ -16,7 +16,7 @@ window.addEventListener("mousemove", function (e) {
 
 function animate() {
   ctx.strokeStyle = "#00ff00";
-  ctx.lineWidth = 2;
+  ctx.lineWidth = 3;
   ctx.beginPath();
   ctx.moveTo(lastMouse.x, lastMouse.y);
   ctx.lineTo(mouse.x, mouse.y);
