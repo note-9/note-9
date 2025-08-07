@@ -18,12 +18,12 @@ html, body {
   z-index: 1;
 }
 
-h1 {
+h1, h2 {
   font-size: 3rem;
   margin-bottom: 3rem;
 }
 
-p {
+p, li {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
