@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // GitHub projects
   const projects = [
     { title: 'Self-Driving-Car', desc: 'Autonomous vehicle simulator / control system.', url: 'https://github.com/note-9/self-driving-car' },
-    { title: 'Starfield Animation', desc: 'Stunning starfield visual effect using canvas.', url: 'https://github.com/note-9/starfield-animation' },
+    { title: 'Starfield Animation', desc: 'Stunning starfield visual effect using SDL.', url: 'https://github.com/note-9/starfield-animation' },
     { title: 'Game of Life', desc: 'Conway’s cellular automaton simulation.', url: 'https://github.com/note-9/game-of-life' },
     { title: 'TCPChat', desc: 'Client-server real-time TCP chat application.', url: 'https://github.com/note-9/TCPChat' },
     { title: 'Web Crawler', desc: 'Custom web-scraping & crawling tool.', url: 'https://github.com/note-9/web-crawler' },
-    { title: 'Social Media App', desc: 'Full-stack social media platform.', url: 'https://github.com/note-9/Social-Media-App' },
+    { title: 'Social Media App', desc: 'Small API for a social media like webapp.', url: 'https://github.com/note-9/Social-Media-App' },
   ];
 
   // Find the container
