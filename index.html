@@ -3,30 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Heemansh | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>My Indie Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="content">
-    <h1>Hello, I'm Heemansh 👋</h1>
-    <p>I’m a curious programmer, builder, and ctf player.</p>
-    <p>I love working on creative projects, reverse engineering binaries, and automating things with code.</p>
-    <p>Check out my GitHub and projects below!</p>
-    <div class="links">
-      <a href="https://github.com/note-9" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/heemansh-bhawsar-2063981b0" target="_blank">LinkedIn</a>
-      <a href="https://tryhackme.com/p/heemansh." target="_blank">TryHackMe</a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Hello, I'm Heemansh</h1>
+    <p>Indie Developer • Cybersecurity Enthusiast • Creator</p>
+  </header>
+
+  <section id="about" class="hidden">
+    <h2>About Me</h2>
+    <p>
+      I'm an indie developer with a love for clean design, creative projects, and cybersecurity.
+      I enjoy building things that mix art and technology. Whether it's a CLI tool, a web app, or a game,
+      I like making ideas come alive.
+    </p>
+  </section>
+
+  <section id="projects" class="hidden">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>LogWatcher</h3>
+        <p>A FastAPI-based log analyzer with alerts, Dockerized for deployment.</p>
+      </div>
+      <div class="card">
+        <h3>BeatSage AI</h3>
+        <p>An AI music mood classifier using ML + signal processing.</p>
+      </div>
+      <div class="card">
+        <h3>SnekAPI</h3>
+        <p>A multiplayer snake game API built with Python/Go.</p>
+      </div>
     </div>
-    <h2>Skills</h2>
-    <ul>
-      <li>Languages: Python, C++, Go, Bash</li>
-      <li>Tools: Git, Docker, GDB, Wireshark</li>
-      <li>Frameworks: FastAPI, Django</li>
-      <li>Cybersecurity: CTFs, Binary Exploitation, Web Pentesting</li>
-    </ul>
-  </div>
-  <div>
-  <canvas id="trail"></canvas>
+  </section>
+
+  <section id="contact" class="hidden">
+    <h2>Contact</h2>
+    <p>
+      Let's connect! Drop me an email at 
+      <a href="mailto:heemansh@example.com">heemansh@example.com</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 Heemansh Bhawsar • Built with ♥ in Indie Style</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
