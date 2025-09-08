@@ -1,4 +1,4 @@
-// Reveal elements on scroll
+// Scroll reveal animation
 const hiddenElements = document.querySelectorAll('.hidden');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
