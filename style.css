@@ -6,54 +6,27 @@
 }
 
 body {
-  font-family: 'Courier New', monospace;
-  background: #111;
-  color: #eee;
-  line-height: 1.6;
-  overflow-x: hidden;
+  font-family: 'Noto Serif JP', serif;
+  background: #fafafa;
+  color: #222;
+  line-height: 2;
+  letter-spacing: 0.05em;
 }
 
-header {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: linear-gradient(135deg, #1a1a1a, #222);
-}
-
-header h1 {
-  font-size: 3rem;
-  letter-spacing: 3px;
-  margin-bottom: 1rem;
-  animation: fadeIn 2s ease forwards;
-}
-
-header p {
-  font-size: 1.2rem;
-  color: #aaa;
-  animation: fadeIn 3s ease forwards;
-}
-
+/* Navigation */
 nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem 2rem;
+  top: 2rem;
+  right: 2rem;
   display: flex;
-  justify-content: flex-end;
-  gap: 2rem;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(6px);
-  z-index: 100;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.9rem;
 }
 
 nav a {
-  color: #eee;
+  color: #222;
   text-decoration: none;
-  font-size: 1rem;
   position: relative;
 }
 
@@ -61,10 +34,10 @@ nav a::after {
   content: "";
   position: absolute;
   width: 0;
-  height: 2px;
-  background: #ff4d6d;
+  height: 1px;
+  background: #e60033; /* Japanese red */
   left: 0;
-  bottom: -4px;
+  bottom: -3px;
   transition: 0.3s;
 }
 
@@ -72,59 +45,86 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* Header */
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #e60033;
+  animation: fadeIn 2s ease forwards;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #444;
+  animation: fadeIn 3s ease forwards;
+}
+
+/* Sections */
 section {
   padding: 6rem 2rem;
-  max-width: 900px;
+  max-width: 800px;
   margin: auto;
 }
 
 section h2 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
-  color: #ff4d6d;
+  color: #e60033;
 }
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
 .card {
-  background: #1c1c1c;
+  background: #fff;
+  border: 1px solid #ddd;
   padding: 1.5rem;
-  border-radius: 12px;
+  border-radius: 8px;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
 .card h3 {
   margin-bottom: 0.5rem;
-  color: #ffb347;
+  color: #222;
 }
 
+/* Footer */
 footer {
   text-align: center;
-  padding: 2rem;
-  border-top: 1px solid #333;
+  padding: 3rem 1rem;
+  font-size: 0.85rem;
   color: #777;
 }
 
+/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scroll reveal */
 .hidden {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
+
 .show {
   opacity: 1;
   transform: translateY(0);
