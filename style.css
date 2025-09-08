@@ -1,29 +1,25 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: 'Noto Serif JP', serif;
-  background: #fdfcf7;   /* warm paper background */
-  color: #2a2a2a;        /* soft black */
+  background: #faf8f5;   /* soft cream */
+  color: #1e1e24;        /* deep charcoal */
   line-height: 2;
   letter-spacing: 0.05em;
 }
 
 /* Navigation */
 nav a {
-  color: #2a2a2a;
+  color: #1e1e24;
 }
 nav a::after {
-  background: #d1495b; /* indie red accent */
+  background: #264653; /* indigo accent */
+}
+nav a:hover {
+  color: #264653;
 }
 
 /* Header */
 header h1 {
-  color: #d1495b; /* indie red */
+  color: #264653; /* indigo */
 }
 header p {
   color: #555; /* softer gray */
@@ -31,38 +27,27 @@ header p {
 
 /* Sections */
 section h2 {
-  color: #d1495b; /* accent */
+  color: #264653; /* accent */
+  border-left: 4px solid #e9c46a; /* indie touch */
+  padding-left: 0.5rem;
 }
 
 /* Cards */
 .card {
   background: #ffffff; /* clean white */
   border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #e9c46a; /* warm highlight */
 }
 .card h3 {
-  color: #2a2a2a;
+  color: #264653;
 }
 
 /* Footer */
 footer {
-  color: #777;
-}
-
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hidden {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-.show {
-  opacity: 1;
-  transform: translateY(0);
+  color: #666;
 }
