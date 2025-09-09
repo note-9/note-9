@@ -100,24 +100,49 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-.sakura {
-  position: fixed;
-  top: -20px;
-  width: 15px;
-  height: 15px;
-  background: pink;
-  border-radius: 50% 50% 50% 0; /* petal-like shape */
-  transform: rotate(45deg);
-  animation: fall linear forwards;
-  pointer-events: none;
-  z-index: 9999;
+/* Respect reduced-motion in CSS as well */
+@media (prefers-reduced-motion: reduce) {
+  .sakura { display: none !important; animation: none !important; }
 }
 
-@keyframes fall {
+/* Single-petal style */
+.sakura {
+  position: fixed;
+  top: -20vh;                 /* start above viewport */
+  left: var(--left, 0px);
+  width: var(--size, 18px);
+  height: calc(var(--size, 18px) * 0.75); /* petal aspect */
+  background: radial-gradient(circle at 30% 25%, #ffe6ef 0%, #ffb6d8 45%, #ff89c2 100%);
+  border-radius: 50% 50% 40% 40%;
+  transform-origin: center;
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.98;
+
+  /* animation properties use CSS variables injected from JS */
+  animation-name: sakura-fall;
+  animation-duration: var(--duration, 6000ms);
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* The fall animation uses translate3d for GPU acceleration and a CSS var for horizontal drift */
+@keyframes sakura-fall {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
   }
+  10% { opacity: 1; }
   100% {
-    transform: translateY(100vh) rotate(360deg);
+    /* drift horizontally by the variable and fall past the bottom of the viewport */
+    transform: translate3d(var(--drift, 0px), 120vh, 0) rotate(var(--rotate, 360deg));
+    opacity: 0;
   }
+}
+
+/* tuned styles for very small screens (optional) */
+@media (max-width: 420px) {
+  .sakura { width: calc(var(--size, 18px) * 1.15); height: calc(var(--size, 18px) * 0.9); }
 }
