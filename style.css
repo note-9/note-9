@@ -100,40 +100,64 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-/* Respect reduced-motion in CSS as well */
+/* Respect reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .sakura { display: none !important; animation: none !important; }
 }
 
-/* Single-petal style */
+/* Petal style (small, elongated, non-star shape) */
 .sakura {
   position: fixed;
-  top: -20px;
-  background: pink;
-  border-radius: 60% 60% 40% 40% / 70% 70% 30% 30%;
+  top: -12vh;
+  left: var(--left, 0px);
+
+  /* small, delicate sizes come from --size (8px–16px recommended) */
   width: var(--size, 12px);
-  height: calc(var(--size, 12px) * 1.4);
+  height: calc(var(--size, 12px) * 1.35);
 
-  /* Subtle gradient for depth */
-  background: radial-gradient(circle at 30% 30%, #fff, pink);
+  /* subtle highlight + shading */
+  background: radial-gradient(circle at 28% 30%, #fff8fb 0%, #ffe6ef 25%, #ffb6d8 60%, #ff89c2 100%);
+  /* organic, asymmetric petal */
+  border-radius: 60% 55% 40% 45% / 70% 70% 30% 30%;
+  box-shadow: inset -0.8px -0.8px 2px rgba(255,255,255,0.55);
 
-  opacity: 0.8;
-  animation: fall var(--duration, 6s) linear forwards;
+  opacity: var(--opacity, 0.9);
+  transform-origin: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+  z-index: 9999;
+
+  /* animation (uses CSS variables set from JS) */
+  animation-name: sakura-fall;
+  animation-duration: var(--duration, 6500ms);
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: var(--delay, 0ms);
 }
 
-
-/* The fall animation uses translate3d for GPU acceleration and a CSS var for horizontal drift */
+/* Swaying fall animation: small sideways oscillation, then a final drift */
 @keyframes sakura-fall {
   0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(var(--tilt, 10deg));
     opacity: 1;
   }
-  10% { opacity: 1; }
+  25% {
+    transform: translate3d(var(--sway1, 18px), 28vh, 0) rotate(calc(var(--tilt, 10deg) + 90deg));
+    opacity: 0.98;
+  }
+  60% {
+    transform: translate3d(var(--sway2, -16px), 72vh, 0) rotate(calc(var(--tilt, 10deg) + 240deg));
+    opacity: 0.9;
+  }
   100% {
-    /* drift horizontally by the variable and fall past the bottom of the viewport */
-    transform: translate3d(var(--drift, 0px), 120vh, 0) rotate(var(--rotate, 360deg));
+    transform: translate3d(var(--drift, 0px), 120vh, 0) rotate(calc(var(--tilt, 10deg) + 360deg));
     opacity: 0;
   }
+}
+
+/* Slight tweak for very small screens */
+@media (max-width: 420px) {
+  .sakura { height: calc(var(--size, 12px) * 1.4); }
 }
 
 /* tuned styles for very small screens (optional) */
