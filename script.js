@@ -38,33 +38,64 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---------------------------
   // 🌸 Sakura petals (on scroll + on click)
   // ---------------------------
-  function createSakuraLeaf() {
-  const leaf = document.createElement("div");
-  leaf.classList.add("sakura");
+  // call this where you need it (e.g., inside DOMContentLoaded)
+function createSakuraPetal() {
+  // respect user's reduced-motion setting
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  // Random position, size, drift
-  leaf.style.left = Math.random() * window.innerWidth + "px";
-  const size = 12 + Math.random() * 20;
-  leaf.style.width = size + "px";
-  leaf.style.height = size * 1.3 + "px";
-  leaf.style.animationDuration = (5 + Math.random() * 5) + "s";
+  const petal = document.createElement("div");
+  petal.className = "sakura";
 
-  // add random horizontal drift (CSS var)
-  leaf.style.setProperty("--drift", (Math.random() - 0.5) * 200 + "px");
+  // keep sizes small to avoid balloon look: 8px - 16px
+  const size = 8 + Math.random() * 8; // 8..16
+  petal.style.setProperty("--size", size.toFixed(1) + "px");
 
-  document.body.appendChild(leaf);
+  // horizontal start
+  petal.style.left = Math.random() * window.innerWidth + "px";
 
-  setTimeout(() => leaf.remove(), 12000);
+  // final drift (-60px .. +60px)
+  const drift = Math.round((Math.random() * 120) - 60);
+  petal.style.setProperty("--drift", drift + "px");
+
+  // two small sway values for oscillation (around -20..20px)
+  const sway1 = Math.round((Math.random() * 40) - 20);
+  const sway2 = Math.round((Math.random() * 40) - 20);
+  petal.style.setProperty("--sway1", sway1 + "px");
+  petal.style.setProperty("--sway2", sway2 + "px");
+
+  // small tilt so petals aren't symmetric -30deg .. +30deg
+  const tilt = (Math.random() * 60 - 30).toFixed(1) + "deg";
+  petal.style.setProperty("--tilt", tilt);
+
+  // subtle opacity variation
+  petal.style.setProperty("--opacity", (0.75 + Math.random() * 0.25).toFixed(2));
+
+  // duration and delay (ms)
+  const durationMs = 4500 + Math.random() * 3000; // 4.5s .. 7.5s
+  const delayMs = Math.random() * 350; // up to 350ms
+  petal.style.setProperty("--duration", Math.round(durationMs) + "ms");
+  petal.style.setProperty("--delay", Math.round(delayMs) + "ms");
+
+  document.body.appendChild(petal);
+
+  // cleanup after animation finishes
+  setTimeout(() => {
+    if (petal && petal.parentNode) petal.parentNode.removeChild(petal);
+  }, durationMs + delayMs + 500);
 }
 
+// Example handlers (scroll + click + touch bursts)
+window.addEventListener("scroll", () => {
+  for (let i = 0; i < 3; i++) createSakuraPetal();
+}, { passive: true });
 
-  // spawn a few petals per scroll event
-  window.addEventListener("scroll", () => {
-    for (let i = 0; i < 3; i++) createSakuraLeaf();
-  });
-
-  // spawn a burst on click/tap
-  window.addEventListener("click", () => {
-    for (let i = 0; i < 10; i++) createSakuraLeaf();
-  });
+window.addEventListener("click", () => {
+  for (let i = 0; i < 10; i++) createSakuraPetal();
 });
+
+window.addEventListener("touchstart", () => {
+  for (let i = 0; i < 6; i++) createSakuraPetal();
+}, { passive: true });
+
+//optional: small initial burst on load (uncomment if you want)
+ for (let i = 0; i < 6; i++) createSakuraPetal();
