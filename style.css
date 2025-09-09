@@ -112,8 +112,8 @@ footer {
   left: var(--left, 0px);
 
   /* Sakura petal size */
-  width: var(--size, 18px);
-  height: var(--size, 24px);
+  width: var(--size, 12px);
+  height: var(--size, 12px);
 
   /* Soft pink gradient for realism */
   background: radial-gradient(circle at 30% 30%, #ffe6ef 0%, #ffb6d8 40%, #ff89c2 100%);
