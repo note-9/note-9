@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: 'Social Media App', desc: 'Small API for a social media like webapp.', url: 'https://github.com/note-9/Social-Media-App' },
   ];
 
-  // Find the container
   const container = document.querySelector('.projects');
   if (container) {
     projects.forEach(p => {
@@ -32,5 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   } else {
     console.error("❌ Could not find .projects container in HTML.");
+  }
+
+  // 🌸 Sakura leaves falling on scroll
+  window.addEventListener("scroll", () => {
+    if (Math.random() < 0.3) { // probability control
+      createSakuraLeaf();
+    }
+  });
+
+  function createSakuraLeaf() {
+    const leaf = document.createElement("div");
+    leaf.classList.add("sakura");
+    leaf.style.left = Math.random() * window.innerWidth + "px";
+    leaf.style.animationDuration = (5 + Math.random() * 5) + "s"; // fall speed
+    leaf.style.opacity = Math.random();
+    document.body.appendChild(leaf);
+
+    // remove after animation ends
+    setTimeout(() => leaf.remove(), 10000);
   }
 });
