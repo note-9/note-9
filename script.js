@@ -36,38 +36,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---------------------------
-  // 📬 Contact section
-  // ---------------------------
-  const contact = document.querySelector('.contact');
-  if (contact) {
-    contact.innerHTML = `
-      <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-      <p>GitHub: <a href="https://github.com/note-9" target="_blank">github.com/note-9</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a></p>
-    `;
-  }
-
-  // ---------------------------
   // 🌸 Sakura petals (on scroll + on click)
   // ---------------------------
   function createSakuraLeaf() {
-    const leaf = document.createElement("div");
-    leaf.classList.add("sakura");
+  const leaf = document.createElement("div");
+  leaf.classList.add("sakura");
 
-    // Random position, size, drift
-    leaf.style.left = Math.random() * window.innerWidth + "px";
-    const size = 12 + Math.random() * 20;
-    leaf.style.width = size + "px";
-    leaf.style.height = size * 1.3 + "px";
-    leaf.style.animationDuration = (5 + Math.random() * 5) + "s";
-    leaf.style.transform = `rotate(${Math.random() * 360}deg)`;
+  // Random position, size, drift
+  leaf.style.left = Math.random() * window.innerWidth + "px";
+  const size = 12 + Math.random() * 20;
+  leaf.style.width = size + "px";
+  leaf.style.height = size * 1.3 + "px";
+  leaf.style.animationDuration = (5 + Math.random() * 5) + "s";
 
-    document.body.appendChild(leaf);
+  // add random horizontal drift (CSS var)
+  leaf.style.setProperty("--drift", (Math.random() - 0.5) * 200 + "px");
 
-    // cleanup
-    setTimeout(() => leaf.remove(), 10000);
-  }
+  document.body.appendChild(leaf);
+
+  setTimeout(() => leaf.remove(), 12000);
+}
+
 
   // spawn a few petals per scroll event
   window.addEventListener("scroll", () => {
