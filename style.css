@@ -108,25 +108,35 @@ footer {
 /* Single-petal style */
 .sakura {
   position: fixed;
-  top: -20vh;                 /* start above viewport */
+  top: -20vh;
   left: var(--left, 0px);
-  width: var(--size, 18px);
-  height: calc(var(--size, 18px) * 0.75); /* petal aspect */
-  background: radial-gradient(circle at 30% 25%, #ffe6ef 0%, #ffb6d8 45%, #ff89c2 100%);
-  border-radius: 50% 50% 40% 40%;
-  transform-origin: center;
-  will-change: transform, opacity;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.98;
 
-  /* animation properties use CSS variables injected from JS */
-  animation-name: sakura-fall;
-  animation-duration: var(--duration, 6000ms);
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
+  /* Sakura petal size */
+  width: var(--size, 18px);
+  height: var(--size, 24px);
+
+  /* Soft pink gradient for realism */
+  background: radial-gradient(circle at 30% 30%, #ffe6ef 0%, #ffb6d8 40%, #ff89c2 100%);
+
+  /* Petal shape using clip-path (heart-like) */
+  clip-path: polygon(
+    50% 0%,   /* top center */
+    100% 35%, /* right curve */
+    75% 100%, /* bottom right */
+    50% 80%,  /* inner bottom dip */
+    25% 100%, /* bottom left */
+    0% 35%    /* left curve */
+  );
+
+  transform-origin: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+  z-index: 9999;
+
+  animation: sakura-fall var(--duration, 6000ms) linear forwards;
   animation-delay: var(--delay, 0ms);
 }
+
 
 /* The fall animation uses translate3d for GPU acceleration and a CSS var for horizontal drift */
 @keyframes sakura-fall {
