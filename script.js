@@ -34,21 +34,34 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 🌸 Sakura leaves falling on scroll
-  window.addEventListener("scroll", () => {
-    if (Math.random() < 0.3) { // probability control
-      createSakuraLeaf();
-    }
-  });
-
+document.addEventListener("DOMContentLoaded", () => {
+  // 🌸 Sakura petals falling continuously
   function createSakuraLeaf() {
     const leaf = document.createElement("div");
     leaf.classList.add("sakura");
+
+    // Random horizontal position
     leaf.style.left = Math.random() * window.innerWidth + "px";
-    leaf.style.animationDuration = (5 + Math.random() * 5) + "s"; // fall speed
-    leaf.style.opacity = Math.random();
+
+    // Random size
+    const size = 10 + Math.random() * 15;
+    leaf.style.width = size + "px";
+    leaf.style.height = size + "px";
+
+    // Random animation duration (fall speed)
+    leaf.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    // Random rotation speed
+    leaf.style.animationDelay = (Math.random() * 5) + "s";
+
     document.body.appendChild(leaf);
 
-    // remove after animation ends
+    // Remove after animation ends
     setTimeout(() => leaf.remove(), 10000);
   }
+
+  // Keep spawning petals
+  setInterval(createSakuraLeaf, 300); // every 0.3s
+});
+
 });
