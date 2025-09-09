@@ -108,33 +108,17 @@ footer {
 /* Single-petal style */
 .sakura {
   position: fixed;
-  top: -20vh;
-  left: var(--left, 0px);
-
-  /* Sakura petal size */
+  top: -20px;
+  background: pink;
+  border-radius: 60% 60% 40% 40% / 70% 70% 30% 30%;
   width: var(--size, 12px);
-  height: var(--size, 12px);
+  height: calc(var(--size, 12px) * 1.4);
 
-  /* Soft pink gradient for realism */
-  background: radial-gradient(circle at 30% 30%, #ffe6ef 0%, #ffb6d8 40%, #ff89c2 100%);
+  /* Subtle gradient for depth */
+  background: radial-gradient(circle at 30% 30%, #fff, pink);
 
-  /* Petal shape using clip-path (heart-like) */
-  clip-path: polygon(
-    50% 0%,   /* top center */
-    100% 35%, /* right curve */
-    75% 100%, /* bottom right */
-    50% 80%,  /* inner bottom dip */
-    25% 100%, /* bottom left */
-    0% 35%    /* left curve */
-  );
-
-  transform-origin: center;
-  pointer-events: none;
-  will-change: transform, opacity;
-  z-index: 9999;
-
-  animation: sakura-fall var(--duration, 6000ms) linear forwards;
-  animation-delay: var(--delay, 0ms);
+  opacity: 0.8;
+  animation: fall var(--duration, 6s) linear forwards;
 }
 
 
