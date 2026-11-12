@@ -4,15 +4,10 @@ i like computers and making things from scratch.
 
 currently messing around with:
 
-* C
+* C++
 * Linux
 * systems programming
-* game programming
-* networking
+* graphics programming
 * reverse engineering
 
 mostly learning by building things and breaking them.
-
-```text
-C → Linux → systems → ??? 
-```
